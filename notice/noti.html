@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="no.css" />
+    <title>공지사항</title>
+</head>
+<body>
+<header>
+    <div class="logo"></div>
+
+    <ul class="nav">
+        <li><a href="/wn.html">홈</a></li>
+
+        <li>
+            <a href="#news">새소식</a>
+            <div class="dropdown">
+                <a href="/notice/noti.html">공지사항</a>
+            </div>
+        </li>
+
+        <li>
+            <a href="#community">커뮤니티</a>
+            <div class="dropdown">
+                <a href="#">전체</a>
+                <a href="#">자유</a>
+            </div>
+        </li>
+
+        <li><a href="#games">다운로드</a></li>
+        <li><a href="#about">게임 소개</a></li>
+        <li><a href="#contact">고객지원</a></li>
+    </ul>
+
+    <div class="login-area">
+        <a href="#" class="login-btn">로그인</a>
+        <a href="#" class="login-btn">회원가입</a>
+    </div>
+</header>
+
+<!-- 공지사항 리스트 영역 -->
+<main class="notice-section">
+    <div class="tabs">
+        <button class="tab active">공지사항</button>
+        <button class="tab">업데이트</button>
+    </div>
+
+    <div class="search-bar">
+        <select>
+            <option>제목+내용</option>
+            <option>제목</option>
+            <option>내용</option>
+            <option>작성자</option>
+        </select>
+        <input type="text" placeholder="검색어를 입력하세요." />
+        <button class="search-btn">🔍</button>
+    </div>
+
+    <ul class="notice-list">
+        <li>
+            <span class="icon notice"></span>
+            <a href="#">11월 26일(수) 업데이트 상세 안내</a>
+            <span class="date">1일전</span>
+        </li>
+        <li>
+            <span class="icon notice"></span>
+            <a href="#">서버 오픈 안내</a>
+            <span class="date">1일전</span>
+        </li>
+        <li>
+            <span class="icon notice"></span>
+            <a href="#">새로운 과장님 소개</a>
+            <span class="date">2025.11.19</span>
+        </li>
+        <li>
+            <span class="icon gift"></span>
+            <a href="#">쿠폰 안내</a>
+            <span class="date">2025.10.24</span>
+        </li>
+        <li>
+            <span class="icon notice"></span>
+            <a href="#">확인 중인 현상 안내 (버그 수정)</a>
+            <span class="date">2일전</span>
+        </li>
+        <li>
+            <span class="icon notice"></span>
+            <a href="#">PC 버전 설치 방법 안내</a>
+            <span class="date">2025.10.21</span>
+        </li>
+    </ul>
+</main>
+
+</body>
+</html>

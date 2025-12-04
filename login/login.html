@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+            <h2>로그인</h2>
+            <form id="loginForm" action="#" method="POST">
+                <div class="input-group">
+                    <label for="loginEmail">이메일</label>
+                    <input type="email" id="loginEmail" name="email" placeholder="가입한 이메일을 입력하세요" required>
+                </div>
+                <div class="input-group">
+                    <label for="loginPw">비밀번호</label>
+                    <input type="password" id="loginPw" name="password" placeholder="비밀번호를 입력하세요" required>
+                </div>
+                <button type="submit" class="btn">로그인 하기</button>
+            </form>
+            
+            <p class="switch-page">
+                계정이 없으신가요? <a href="signup.html">회원가입</a>
+            </p>
+            
+        </div>
+    </div>
+
+    <!-- Supabase JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        const SUPABASE_URL = "https://sayfpvdocukafwetgsms.supabase.co";
+        const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNheWZwdmRvY3VrYWZ3ZXRnc21zIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQwMjE1MTcsImV4cCI6MjA3OTU5NzUxN30.O6XxpBntdKb8mYIW3E94YeR6eaGtNxxzO3vs4u6t32g";
+        window.supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    </script>
+    <script src="login.js"></script>
+</body>
+</html>

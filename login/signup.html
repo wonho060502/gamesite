@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+            <h2>회원가입</h2>
+            <form id="signupForm">
+                <div class="input-group">
+                    <label for="signupEmail">이메일</label>
+                    <input type="email" id="signupEmail" placeholder="이메일 주소" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="signupId">아이디</label>
+                    <input type="text" id="signupId" placeholder="사용할 아이디" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="signupPw">비밀번호</label>
+                    <input type="password" id="signupPw" placeholder="비밀번호" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="signupPwConfirm">비밀번호 확인</label>
+                    <input type="password" id="signupPwConfirm" placeholder="비밀번호 재입력" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="signupName">닉네임</label>
+                    <input type="text" id="signupName" placeholder="닉네임" required>
+                </div>
+
+                <button type="submit" class="btn">가입하기</button>
+            </form>
+
+            <p class="switch-page">
+                이미 계정이 있으신가요? <a href="login.html">로그인</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Supabase JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        const SUPABASE_URL = "https://sayfpvdocukafwetgsms.supabase.co";
+        const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNheWZwdmRvY3VrYWZ3ZXRnc21zIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQwMjE1MTcsImV4cCI6MjA3OTU5NzUxN30.O6XxpBntdKb8mYIW3E94YeR6eaGtNxxzO3vs4u6t32g";
+        window.supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
+    

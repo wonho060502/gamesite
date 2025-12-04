@@ -1,0 +1,57 @@
+/* 전체 초기화 및 배경 설정 */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+   
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #171717; /* 배경색 (원하는 색으로 변경 가능) */
+    font-family: 'Malgun Gothic', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 화면 꽉 채우기 */
+}
+
+/* 흰색 박스 디자인 */
+.container {
+    background-color: rgb(37, 37, 37);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    width: 100%;
+    max-width: 400px; /* 너무 넓어지지 않게 제한 */
+}
+
+h2 { text-align: center; margin-bottom: 30px; color: #ffffff; }
+
+.input-group { margin-bottom: 20px; }
+.input-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #ffffff; }
+.input-group input {
+    color: white;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #727272;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: rgb(56, 56, 56);
+}
+
+/* 버튼 스타일 */
+.btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #0051ff; /* 파란색 버튼 */
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.btn:hover { background-color: #0056b3; } 
+
+/* 하단 링크 스타일 */
+.switch-page { text-align: center; color: #a3a3a3; margin-top: 20px; font-size: 14px; }
+.switch-page a { text-decoration: none; color: #007bff; font-weight: bold; }

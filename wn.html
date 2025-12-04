@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ex 사이트 디자인 파일</title>
+<link rel="stylesheet" href="Style/wl.css">
+<style>
+  /* 비디오 배경 */
+  .bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 1s ease;
+    opacity: 1;
+  }
+  .bg-video.fade-out {
+    opacity: 0;
+  }
+
+  /* 로그인 영역 */
+  .nickname {
+    font-weight: bold;
+    color: #fff;
+    margin-right: 10px;
+  }
+  .login-btn {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 5px;
+    text-decoration: none;
+  }
+  .login-btn:hover {
+    background: #555;
+  }
+
+  /* 로그인 영역 위치 보장 */
+  .login-area {
+    display: inline-block;
+    position: relative;
+    z-index: 1000;
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="logo"></div>
+  <ul class="nav">
+    <li><a href="/wn.html">홈</a></li>
+    <li>
+      <a href="#news">새소식</a>
+      <div class="dropdown"><a href="notice/noti.html">공지사항</a></div>
+    </li>
+    <li>
+      <a href="#community">커뮤니티</a>
+      <div class="dropdown">
+        <a href="#">전체</a>
+        <a href="#">자유</a>
+      </div>
+    </li>
+    <li><a href="#games">다운로드</a></li>
+    <li><a href="#about">게임 소개</a></li>
+    <li><a href="#contact">고객지원</a></li>
+  </ul>
+  <div class="login-area" id="loginArea"></div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <video autoplay muted playsinline class="bg-video" id="heroVideo">
+    <source src="img/god.mp4" type="video/mp4">
+  </video>
+  <div class="hero-content">
+    <div class="hero-subtitle" id="heroCount">1 / 6</div>
+    <h1 class="hero-title" id="heroTitle">무제</h1>
+    <p class="hero-description" id="heroDesc">디자인 중</p>
+    <a href="#" class="cta-link">자세히 보기 ></a>
+  </div>
+</section> 
+
+<!-- 이벤트 Section -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">최신 이벤트</h2>
+    <div class="slider-wrapper">
+      <button class="slider-btn prev" onclick="scrollSlider(-1)">‹</button>
+      <div class="slider-container" id="eventSlider">
+        <div class="event-card">
+          <div class="event-card-image" style="background-image: url(img/예제1.png);"></div>
+          <div class="event-card-label">이벤트</div>
+          <div class="event-card-content">
+            <h3 class="event-card-title">Event</h3>
+            <p class="event-card-info">오늘의 첫번째 이벤트</p>
+          </div>
+        </div>
+        <div class="event-card">
+          <div class="event-card-image" style="background-image: url(img/예제2.png);"></div>
+          <div class="event-card-label">글 우은</div>
+          <div class="event-card-content">
+            <h3 class="event-card-title">기록</h3>
+            <p class="event-card-info">이벤트 안내</p>
+          </div>
+        </div>
+        <div class="event-card">
+          <div class="event-card-image" style="background-image: url(img/예제4.png);"></div>
+          <div class="event-card-label">중요</div>
+          <div class="event-card-content">
+            <h3 class="event-card-title">이벤트</h3>
+            <p class="event-card-info">한정 기간</p>
+          </div>
+        </div>
+      </div>
+      <button class="slider-btn next" onclick="scrollSlider(1)">›</button>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer id="footer" class="wr-footer">
+  <div class="footer">div</div>
+</footer>
+
+<!-- Supabase SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+
+  // Supabase 초기화
+  const supabaseUrl = 'https://sayfpvdocukafwetgsms.supabase.co';
+  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNheWZwdmRvY3VrYWZ3ZXRnc21zIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQwMjE1MTcsImV4cCI6MjA3OTU5NzUxN30.O6XxpBntdKb8mYIW3E94YeR6eaGtNxxzO3vs4u6t32g';
+  const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+
+  // 로그인 상태 확인 및 닉네임 가져오기
+  async function getUserSession() {
+    try {
+      const { data: { session }, error: sessionError } = await supabaseClient.auth.getSession();
+      if (sessionError) throw sessionError;
+
+      if (session) {
+        const userId = session.user.id;
+        const { data, error } = await supabaseClient
+          .from('profiles')
+          .select('nickname')
+          .eq('id', userId)
+          .single();
+        if (error) throw error;
+        return { isLoggedIn: true, nickname: data.nickname };
+      } else {
+        return { isLoggedIn: false, nickname: '' };
+      }
+    } catch (err) {
+      console.error('세션 가져오기 실패:', err);
+      return { isLoggedIn: false, nickname: '' }; // 오류 발생 시에도 로그인 버튼 표시
+    }
+  }
+
+  // 로그아웃 처리
+  async function logout() {
+    try {
+      const { error } = await supabaseClient.auth.signOut();
+      if (error) throw error;
+    } catch(err) {
+      console.error('로그아웃 실패:', err.message);
+    }
+    updateLoginArea();
+  }
+
+  // 로그인 영역 업데이트
+  async function updateLoginArea() {
+    const userData = await getUserSession();
+    const loginArea = document.getElementById("loginArea");
+    if (!loginArea) return;
+
+    if (userData.isLoggedIn) {
+      loginArea.innerHTML = `
+        <span class="nickname">안녕하세요, ${userData.nickname}님</span>
+        <button id="logoutBtn" class="login-btn">로그아웃</button>
+      `;
+      document.getElementById("logoutBtn").addEventListener("click", logout);
+    } else {
+      loginArea.innerHTML = `
+        <a href="login/login.html" class="login-btn">로그인</a>
+        <a href="login/signup.html" class="login-btn">회원가입</a>
+      `;
+    }
+  }
+
+  // 초기 실행
+  updateLoginArea();
+
+  // ================= 이벤트 슬라이더 =================
+  window.scrollSlider = function(direction) {
+    const slider = document.getElementById('eventSlider');
+    const scrollAmount = 340;
+    slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+  }
+
+  // ================= Hero 비디오 슬라이드 =================
+  const slides = [
+    { video: "img/god.mp4", title: "5번 째 월즈 우승", desc: "2025 월즈 우승 T1" },
+    { video: "img/zaen.mp4", title: "신캐 갓 자헨", desc: "대단한" },
+    { video: "img/slice3.mp4", title: "직접 등장한 그녀의 정체", desc: "레전드 of 레전드" }
+  ];
+
+  let currentIndex = 0;
+  const videoElement = document.getElementById("heroVideo");
+  const heroCount = document.getElementById("heroCount");
+  const heroTitle = document.getElementById("heroTitle");
+  const heroDesc = document.getElementById("heroDesc");
+
+  function updateHero() {
+    const slide = slides[currentIndex];
+    videoElement.classList.add("fade-out");
+    setTimeout(() => {
+      videoElement.querySelector("source").src = slide.video;
+      videoElement.load();
+      videoElement.play();
+      heroTitle.textContent = slide.title;
+      heroDesc.textContent = slide.desc;
+      heroCount.textContent = `${currentIndex + 1} / ${slides.length}`;
+      videoElement.classList.remove("fade-out");
+      currentIndex = (currentIndex + 1) % slides.length;
+    }, 1000);
+  }
+
+  setInterval(updateHero, 5000);
+
+});
+</script>
+</body>
+</html>
