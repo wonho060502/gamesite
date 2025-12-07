@@ -90,22 +90,32 @@
     gap: 10px;
 }
 
-        .login-btn {
-            border-radius: 100px; 
-            color: hsla(0,0%,100%,.7);
-            padding: 8px 20px;
-            border: none;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 500;
-            transition: background-color 0.3s;
-            text-decoration: none;
-        }
+         /* 로그인 영역 */
+  .nickname {
+    font-weight: bold;
+    color: #fff;
+    margin-right: 10px;
+  }
+  .login-btn {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 5px;
+    text-decoration: none;
+  }
+  .login-btn:hover {
+    background: #555;
+  }
 
-        .login-btn:hover {
-            background-color: black;
-            color: white;
-        }
+  /* 로그인 영역 위치 보장 */
+  .login-area {
+    display: inline-block;
+    position: relative;
+    z-index: 1000;
+  }
 
         /* Sub Navigation */
         .sub-nav {

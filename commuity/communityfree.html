@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>자유게시판 | 게임 이름</title>
+    <link rel="stylesheet" href="../Style/wl.css" />
+
+    <style>
+      /* =============== 전체 레이아웃 =============== */
+      body {
+        background-color: #0f0f0f;
+        color: #e6e6e6;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .community-main {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 60px 20px;
+      }
+
+      h1 {
+        font-size: 30px;
+        font-weight: bold;
+        margin-bottom: 12px;
+        border-left: 6px solid #4d7cff;
+        padding-left: 10px;
+        color: #ffffff;
+      }
+
+      /* =============== 게시판 박스 =============== */
+
+      .board-section {
+        margin-top: 24px;
+        padding: 20px 22px;
+        border-radius: 10px;
+        border: 1px solid #2a2a2a;
+        background-color: #161616;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.45);
+      }
+
+      .board-section h2 {
+        font-size: 18px;
+        margin-bottom: 14px;
+        color: #b4b4b4;
+        font-weight: 500;
+      }
+
+      /* =============== 테이블 디자인 =============== */
+
+      .board-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+
+      .board-table th {
+        padding: 10px 6px;
+        border-bottom: 1px solid #333;
+        background-color: #1f1f1f;
+        color: #ddd;
+        text-align: left;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .board-table td {
+        padding: 10px 6px;
+        border-bottom: 1px solid #262626;
+        color: #ccc;
+      }
+
+      .board-table th:nth-child(1),
+      .board-table td:nth-child(1) {
+        width: 60px;
+        text-align: center;
+      }
+
+      .board-table th:nth-child(3),
+      .board-table td:nth-child(3) {
+        width: 120px;
+        text-align: center;
+      }
+
+      .board-table th:nth-child(4),
+      .board-table td:nth-child(4),
+      .board-table th:nth-child(5),
+      .board-table td:nth-child(5) {
+        width: 80px;
+        text-align: center;
+      }
+
+      .board-table tbody tr {
+        transition: background-color 0.2s ease;
+      }
+
+      .board-table tbody tr:hover {
+        background-color: #222;
+        cursor: pointer;
+      }
+
+      .board-table td:nth-child(2) {
+        color: #e9e9e9;
+        font-weight: 500;
+      }
+
+      .board-table td:nth-child(2):hover {
+        text-decoration: underline;
+      }
+
+      .board-footer {
+        margin-top: 12px;
+        font-size: 12px;
+        text-align: right;
+        color: #bbbbbb;
+      }
+
+      .board-footer span {
+        display: inline-block;
+        margin-left: 4px;
+        padding: 3px 6px;
+        background: #1c1c1c;
+        border-radius: 4px;
+        transition: 0.2s;
+      }
+
+      .board-footer span:hover {
+        background: #4d7cff;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      /* 로그인/로그아웃 버튼 스타일 */
+      .login-btn, .logout-btn {
+        color: white;
+        padding: 6px 12px;
+        border-radius: 4px;
+        background-color: #4d7cff;
+        text-decoration: none;
+        margin-left: 10px;
+      }
+
+      .logout-btn {
+        background-color: #ff4d4d;
+      }
+
+      .username {
+        font-weight: bold;
+        margin-right: 6px;
+        color: #fff;
+      }
+    </style>
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  </head>
+
+  <body>
+
+    <!-- ===== 헤더 ===== -->
+    <header>
+      <div class="logo"></div>
+      <ul class="nav">
+        <li><a href="/index.html">홈</a></li>
+        <li>
+          <a href="#news">새소식</a>
+          <div class="dropdown"><a href="../notice/noti.html">공지사항</a></div>
+        </li>
+        <li>
+          <a href="#community">커뮤니티</a>
+          <div class="dropdown">
+            <a href="communityall.html">전체</a>
+            <a href="/community/communityfree.html">자유</a>
+          </div>
+        </li>
+        <li><a href="../download/download.html">다운로드</a></li>
+        <li><a href="#about">게임 소개</a></li>
+        <li><a href="#contact">고객지원</a></li>
+      </ul>
+
+      <!-- 로그인/로그아웃 표시될 영역 -->
+  <div class="login-area" id="loginArea"></div>
+    </header>
+
+    <!-- ===== 자유게시판 메인 ===== -->
+    <main class="community-main">
+      <h1>자유게시판</h1>
+
+      <section class="board-section">
+        <h2>자유게시판 목록</h2>
+
+        <table class="board-table">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>제목</th>
+              <th>작성자</th>
+              <th>추천</th>
+              <th>조회</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>5</td><td>오늘 처음 시작했는데 어느 라인이 재밌나요?</td><td>새싹유저</td><td>3</td><td>57</td></tr>
+            <tr><td>4</td><td>5인큐 원딜 구합니다</td><td>정글러</td><td>5</td><td>89</td></tr>
+            <tr><td>3</td><td>와 진짜 페이커는 어떻게 저 나이에도 우승을 하지?</td><td>Faker GOAT</td><td>7</td><td>102</td></tr>
+            <tr><td>2</td><td>사일 너프 좀 진짜 그만 때려라</td><td>사일러스원챔</td><td>4</td><td>76</td></tr>
+            <tr><td>1</td><td>gumayusi 이적한데... ㅜㅜ</td><td>T1 gumayusi</td><td>6</td><td>134</td></tr>
+          </tbody>
+        </table>
+
+        <div class="board-footer">
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>다음 ></span>
+        </div>
+      </section>
+    </main>
+
+    <!-- 로그인 처리 스크립트 -->
+    <script src="../auth.js"></script>
+  </body>
+</html>

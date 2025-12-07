@@ -25,7 +25,7 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
 
         // 로그인 성공
         alert("로그인 성공!");
-        window.location.href = "../wn.html";
+        window.location.href = "../index.html";
          
 
     } catch (err) {

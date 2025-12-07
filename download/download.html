@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Style/wl.css">
+    <title>게임 다운로드 센터</title>
+    <!-- 1. Tailwind CSS CDN 로드 (필수: HTML에 남겨야 함) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 2. Tailwind Custom Configuration (필수: HTML에 남겨야 함) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'body-bg': '#10141c',      // 주 배경색 (Dark Slate)
+                        'card-bg': '#202632',      // 카드 배경색 (Darker Slate)
+                        'accent': '#4f46e5',        // 주요 강조색 (Indigo-600)
+                        'accent-hover': '#4338ca',  // 강조색 호버 (Indigo-700)
+                        'text-light': '#e5e7eb',    // 밝은 텍스트
+                        'text-muted': '#9ca3af',    // 보조 텍스트
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-body-bg text-text-light font-sans">
+    
+<header>
+  <div class="logo"></div>
+  <ul class="nav">
+    <li><a href="/index.html">홈</a></li>
+    <li>
+      <a href="#news">새소식</a>
+      <div class="dropdown"><a href="../notice/noti.html">공지사항</a></div>
+    </li>
+    <li>
+      <a href="#community">커뮤니티</a>
+      <div class="dropdown">
+        <a href="..//commuity/communityall.html">전체</a>
+        <a href="..//commuity/communityfree.html">자유</a>
+      </div>
+    </li>
+    <li><a href="download.html">다운로드</a></li>
+    <li><a href="#about">게임 소개</a></li>
+    <li><a href="#contact">고객지원</a></li>
+  </ul>
+  <div class="login-area" id="loginArea">
+
+  </div>
+</header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+        <!-- 페이지 메인 제목 -->
+        <h1 class="text-3xl font-extrabold mb-8 border-b border-text-muted/30 pb-3">공식 다운로드</h1>
+
+        <!-- 2. 다운로드 메인 섹션 (가장 넓게 확장되어 시각적으로 강조) -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
+            
+            <!-- 2-1. 확장된 다운로드 카드 (Download Hero Card) --> 
+            <div class="lg:col-span-2 p-8 download-hero rounded-xl shadow-2xl border border-accent/50 flex flex-col">
+                <div class="flex items-center mb-4">
+                    <!-- Icon for Download -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 mr-3 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    <h2 class="text-3xl font-bold text-accent">게임 클라이언트 다운로드</h2>
+                </div>
+                
+                <p class="text-text-light text-lg mb-6">
+                    최신 버전의 고성능 게임 클라이언트를 즉시 다운로드하고, 광활한 게임 세계를 경험하세요.
+                </p>
+
+                <div class="bg-body-bg/70 p-4 rounded-lg flex justify-between items-center mb-6 border border-text-muted/20">
+                    <div class="text-base sm:text-lg">
+                        <p class="font-semibold text-text-light">현재 버전: <span class="ml-2 font-mono text-green-400">1.0.4</span></p>
+                        <p class="text-text-muted">최종 업데이트: <span class="ml-2 font-mono text-text-muted">2025-02-05</span></p>
+                    </div>
+                    <div class="text-right text-base sm:text-lg">
+                        <p class="font-semibold text-text-light">파일 크기: <span class="ml-2 font-mono text-text-light">78 GB</span></p>
+                    </div>
+                </div>
+                
+                <!-- 다운로드 버튼 영역 (JavaScript로 내용 삽입) -->
+                <div id="downloadArea" class="text-center mt-auto">
+                    <!-- JavaScript content is rendered here on load -->
+                </div>
+            </div>
+
+            <!-- 2-2. 시스템 요구사항 카드 (System Requirements) -->
+            <div class="p-6 bg-card-bg rounded-xl shadow-xl border border-text-muted/20">
+                <h2 class="text-xl font-bold mb-4 text-text-light flex items-center">
+                    <!-- Icon for Laptop/Requirements -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="2" y1="18" x2="22" y2="18"/><line x1="6" y1="22" x2="18" y2="22"/><line x1="10" y1="22" x2="14" y2="22"/></svg>
+                    시스템 요구사항
+                </h2>
+                <div class="overflow-x-auto text-sm">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="text-accent border-b border-accent/50">
+                                <th class="py-2 px-1 font-bold">항목</th>
+                                <th class="py-2 px-1 font-bold">최소</th>
+                                <th class="py-2 px-1 font-bold">권장</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-body-bg/50">
+                                <td class="py-2 px-1">CPU</td>
+                                <td class="py-2 px-1">i5-6600K</td>
+                                <td class="py-2 px-1">i7-9700K</td>
+                            </tr>
+                            <tr class="border-b border-body-bg/50">
+                                <td class="py-2 px-1">RAM</td>
+                                <td class="py-2 px-1">16 GB</td>
+                                <td class="py-2 px-1">32 GB</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-1">GPU</td>
+                                <td class="py-2 px-1">GTX 1060</td>
+                                <td class="py-2 px-1">RTX 3070</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-4 text-center">
+                    <a href="#installation" class="text-accent text-sm font-medium hover:underline">상세 사양 전체 보기 &rarr;</a>
+                </div>
+            </div>
+
+        </section>
+        
+        <!-- 다운로드 상태 메시지 (alert() 대체) -->
+        <div id="statusMessage" class="mt-4 text-center text-lg font-semibold h-6 mb-12"></div>
+
+
+        <!-- 3. 보조 정보 섹션 (Grid Below Main Download Card) -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+
+            <!-- 3-1. 패치 노트 카드 (Patch Notes) -->
+            <div class="p-6 bg-card-bg rounded-xl shadow-xl border border-text-muted/20">
+                <h2 class="text-xl font-bold mb-3 text-text-light flex items-center">
+                    <!-- Icon for File/Patch -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+                    주요 패치 기록
+                </h2>
+                <div class="space-y-3 mt-4 text-sm">
+                    <article>
+                        <p class="font-semibold text-accent/80">1.0.4 - 서버 안정화 (최신)</p>
+                        <p class="text-text-muted">서버 안정성 향상 및 텍스처 로딩 지연 수정.</p>
+                        <a href="#patchNotesDetail" class="text-accent text-xs hover:underline">자세히 보기</a>
+                    </article>
+                    <article>
+                        <p class="font-semibold text-text-light/80">1.0.3 - 신규 콘텐츠 추가</p>
+                        <p class="text-text-muted">신규 지역 '황금의 사막' 오픈 및 레벨 확장.</p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- 3-2. 설치 방법 요약 (Installation Guide Summary) -->
+            <div id="installation" class="p-6 bg-card-bg rounded-xl shadow-xl border border-text-muted/20">
+                   <h2 class="text-xl font-bold mb-3 text-text-light flex items-center">
+                    <!-- Icon for Wrench/Install -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V5H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h2.5"/><path d="M10 10l3 3m0-3l-3 3"/></svg>
+                    설치 가이드 요약
+                </h2>
+                <ol class="list-decimal list-outside space-y-3 pl-5 text-sm text-text-light/90">
+                    <li class="font-bold">
+                        로그인 후 <span class="text-accent">Download Now</span> 버튼 클릭
+                    </li>
+                    <li class="font-bold">
+                        설치 파일 실행 (<span class="text-yellow-400">관리자 권한</span> 권장)
+                    </li>
+                    <li class="font-bold">
+                        설치 경로 지정 (SSD 권장)
+                    </li>
+                    <li class="font-bold">
+                        설치 완료 후 바탕화면 바로가기로 실행
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+
+        <!-- 4. 상세 정보 섹션 (Full Width) -->
+        <section class="space-y-12">
+            
+            <!-- 4-1. 전체 패치노트 상세 -->
+            <section id="patchNotesDetail" class="p-8 bg-card-bg rounded-xl shadow-xl border border-text-muted/20">
+                <h2 class="text-2xl font-bold mb-4 pb-2 border-b border-accent/50 text-accent">전체 패치 노트 (Full Patch Notes)</h2>
+                <div class="space-y-6">
+                    <article class="border-l-4 border-accent pl-4">
+                        <h3 class="text-xl font-semibold mb-1">버전 1.0.4 - 안정화 및 개선</h3>
+                        <p class="text-sm text-text-muted mb-2">2025년 2월 5일</p>
+                        <ul class="list-disc list-inside space-y-1 ml-4 text-text-light/90">
+                            <li>서버 안정성을 향상시키는 패치가 적용되었습니다.</li>
+                            <li>일부 지역에서 발생하던 텍스처 로딩 지연 현상을 수정했습니다.</li>
+                            <li>신규 튜토리얼 퀘스트 3종이 추가되었습니다.</li>
+                        </ul>
+                    </article>
+                    <article class="border-l-4 border-text-muted/50 pl-4 opacity-80">
+                        <h3 class="text-xl font-semibold mb-1">버전 1.0.3 - 콘텐츠 업데이트</h3>
+                        <p class="text-sm text-text-muted mb-2">2025년 1월 15일</p>
+                        <ul class="list-disc list-inside space-y-1 ml-4 text-text-light/90">
+                            <li>신규 지역 '황금의 사막'이 오픈되었습니다.</li>
+                            <li>레벨 제한이 70으로 확장되었습니다.</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+            
+            <!-- 4-2. 자주 묻는 질문 (FAQ) -->
+            <section id="faq" class="p-8 bg-card-bg rounded-xl shadow-xl border border-text-muted/20">
+                <h2 class="text-2xl font-bold mb-4 pb-2 border-b border-accent/50 text-accent">자주 묻는 질문 (FAQ)</h2>
+                <div class="space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <details class="group bg-body-bg rounded-lg shadow-md cursor-pointer">
+                        <summary class="flex justify-between items-center p-4 font-semibold text-lg text-text-light hover:bg-body-bg/70 transition duration-150 rounded-lg">
+                            게임 실행 시 '오류 코드: 404'가 뜹니다. 어떻게 해야 하나요?
+                            <span class="group-open:rotate-180 transition duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                            </span>
+                        </summary>
+                        <div class="px-4 pb-4 text-text-muted border-t border-card-bg/50">
+                            <p>해당 오류는 주로 필수 프로그램(DirectX, Visual C++ Redistributable 등)이 누락되었을 때 발생합니다. 설치 폴더 내의 `Redist` 폴더에서 해당 프로그램을 설치하거나, 마이크로소프트 공식 홈페이지에서 최신 버전을 다운로드하여 설치해 주세요.</p>
+                        </div>
+                    </details>
+
+                    <!-- FAQ Item 2 -->
+                    <details class="group bg-body-bg rounded-lg shadow-md cursor-pointer">
+                        <summary class="flex justify-between items-center p-4 font-semibold text-lg text-text-light hover:bg-body-bg/70 transition duration-150 rounded-lg">
+                            다운로드 속도가 너무 느립니다. 해결 방법이 있나요?
+                            <span class="group-open:rotate-180 transition duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                            </span>
+                        </summary>
+                        <div class="px-4 pb-4 text-text-muted border-t border-card-bg/50">
+                            <p>네트워크 환경을 확인하고, 다른 대용량 다운로드를 일시 중지해 주세요. 또한, 방화벽이나 백신 프로그램이 게임 설치 파일을 차단하는 경우가 있을 수 있으니, 일시적으로 비활성화한 후 다시 시도해 보시기 바랍니다.</p>
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+        </section>
+
+    </main>
+
+    <!-- 5. Footer (하단 정보) -->
+    <footer class="mt-12 py-6 border-t border-card-bg bg-body-bg/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-text-muted">
+            <p>&copy; 2025 Game Portal. All Rights Reserved. | <a href="#" class="text-accent hover:underline">개인정보처리방침</a></p>
+        </div>
+    </footer>
+    
+    <!-- ========== JAVASCRIPT START ========== -->
+ <!-- ========== JAVASCRIPT START ========== -->
+<!-- 1) Supabase SDK를 가장 먼저 불러오기 -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- 2) Supabase 클라이언트 생성 (중복 금지) -->
+<script>
+const supabase = window.supabase.createClient(
+  "https://sayfpvdocukafwetgsms.supabase.co",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNheWZwdmRvY3VrYWZ3ZXRnc21zIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQwMjE1MTcsImV4cCI6MjA3OTU5NzUxN30.O6XxpBntdKb8mYIW3E94YeR6eaGtNxxzO3vs4u6t32g"
+);
+</script>
+
+<!-- 3) 메인 JS -->
+<script>
+let isLoggedIn = false;
+const downloadArea = document.getElementById("downloadArea");
+const statusMessage = document.getElementById("statusMessage");
+
+/* 다운로드 버튼 렌더링 */
+function renderDownloadArea() {
+  if (isLoggedIn) {
+    downloadArea.innerHTML = `
+      <button onclick="handleDownload()" class="
+          w-full md:w-2/3 lg:w-1/2 mx-auto py-3 text-2xl font-extrabold rounded-xl shadow-xl 
+          bg-accent hover:bg-accent-hover transform hover:scale-[1.02] 
+          transition duration-300 ease-in-out active:scale-[0.98]
+      ">
+          Download Now (78 GB)
+      </button>
+      <p class="mt-3 text-text-muted text-sm">다운로드 속도는 사용자 네트워크 환경에 따라 달라질 수 있습니다.</p>
+    `;
+  } else {
+    downloadArea.innerHTML = `
+      <p class="text-red-400 text-2xl font-bold mb-4">
+          다운로드를 진행하려면 먼저 로그인해야 합니다.
+      </p>
+      <a href="/login/login.html" class="
+          w-full md:w-2/3 lg:w-1/2 mx-auto py-3 text-2xl font-extrabold rounded-xl shadow-xl 
+          bg-red-600 hover:bg-red-700 transform hover:scale-[1.02]
+          transition duration-300 ease-in-out active:scale-[0.98] block text-center
+      ">
+          로그인하기
+      </a>
+    `;
+  }
+}
+
+/* 다운로드 실행 */
+function handleDownload() {
+  if (!isLoggedIn) {
+    statusMessage.textContent = "로그인 상태가 아닙니다. 다시 로그인해 주세요.";
+    return;
+  }
+
+  statusMessage.innerHTML = '🚀 다운로드 시작 중... <span class="text-accent">GameClient_1.0.4.exe</span>';
+
+  setTimeout(() => {
+    statusMessage.innerHTML = '🎉 다운로드 완료! 설치 파일을 실행해 주세요.';
+  }, 5000);
+}
+
+/* Supabase 로그인 상태 확인 */
+async function getUserSession() {
+  try {
+    const { data: { session } } = await supabase.auth.getSession();
+
+    if (!session) return { isLoggedIn: false };
+
+    const { data } = await supabase
+      .from("profiles")
+      .select("nickname")
+      .eq("id", session.user.id)
+      .single();
+
+    return {
+      isLoggedIn: true,
+      nickname: data?.nickname || session.user.email
+    };
+  } catch (e) {
+    console.error("세션 오류:", e);
+    return { isLoggedIn: false };
+  }
+}
+
+/* 로그아웃 */
+async function logout() {
+  await supabase.auth.signOut();
+  updateLoginArea();
+}
+
+/* 로그인 영역 업데이트 */
+async function updateLoginArea() {
+  const userData = await getUserSession();
+  const loginArea = document.getElementById("loginArea");
+
+  isLoggedIn = userData.isLoggedIn;
+  renderDownloadArea();
+
+  if (userData.isLoggedIn) {
+    loginArea.innerHTML = `
+      <span class="nickname">안녕하세요, ${userData.nickname}님</span>
+      <button id="logoutBtn" class="login-btn">로그아웃</button>
+    `;
+
+    document.getElementById("logoutBtn").addEventListener("click", logout);
+
+  } else {
+    loginArea.innerHTML = `
+      <a href="/login/login.html" class="login-btn">로그인</a>
+      <a href="/login/signup.html" class="login-btn">회원가입</a>
+    `;
+  }
+}
+
+/* 페이지 로드 시 실행 */
+document.addEventListener("DOMContentLoaded", () => {
+  updateLoginArea();
+});
+</script>
+</body>
+</html>

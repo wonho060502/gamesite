@@ -8,42 +8,33 @@
 </head>
 <body>
 <header>
-    <div class="logo"></div>
+  <div class="logo"></div>
+  <ul class="nav">
+    <li><a href="/index.html">홈</a></li>
+    <li>
+      <a href="#news">새소식</a>
+      <div class="dropdown"><a href="/notice/noti.html">공지사항</a></div>
+    </li>
+    <li>
+      <a href="#community">커뮤니티</a>
+      <div class="dropdown">
+        <a href="/commuity/communityall.html">전체</a>
+        <a href="/commuity/communityfree.html">자유</a>
+      </div>
+    </li>
+    <li><a href="/download/download.html">다운로드</a></li>
+    <li><a href="#about">게임 소개</a></li>
+    <li><a href="#contact">고객지원</a></li>
+  </ul>
 
-    <ul class="nav">
-        <li><a href="/index.html">홈</a></li>
-
-        <li>
-            <a href="#news">새소식</a>
-            <div class="dropdown">
-                <a href="/notice/noti.html">공지사항</a>
-            </div>
-        </li>
-
-        <li>
-            <a href="#community">커뮤니티</a>
-            <div class="dropdown">
-                <a href="#">전체</a>
-                <a href="#">자유</a>
-            </div>
-        </li>
-
-        <li><a href="#games">다운로드</a></li>
-        <li><a href="#about">게임 소개</a></li>
-        <li><a href="#contact">고객지원</a></li>
-    </ul>
-
-    <div class="login-area">
-        <a href="#" class="login-btn">로그인</a>
-        <a href="#" class="login-btn">회원가입</a>
-    </div>
+  <!-- 로그인 UI 표시 영역 -->
+  <div class="login-area" id="loginArea"></div>
 </header>
 
 <!-- 공지사항 리스트 영역 -->
 <main class="notice-section">
     <div class="tabs">
-        <button class="tab active">공지사항</button>
-        <button class="tab">업데이트</button>
+        <button class="tab active">업데이트</button>
     </div>
 
     <div class="search-bar">
@@ -90,6 +81,12 @@
         </li>
     </ul>
 </main>
+
+<!-- Supabase SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- 🔥 올바른 auth.js 경로 -->
+<script src="../auth.js"></script>
 
 </body>
 </html>

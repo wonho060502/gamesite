@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>공지사항 | 게임 이름</title>
+    <link rel="stylesheet" href="../Style/wl.css" />
+
+    <style>
+      /* =============== 전체 스타일 =============== */
+      body {
+        background-color: #0f0f0f;
+        color: #e6e6e6;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .community-main {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 60px 20px;
+      }
+      h1 {
+        font-size: 30px;
+        margin-bottom: 12px;
+        border-left: 6px solid #ff5757;
+        padding-left: 10px;
+        color: #fff;
+      }
+
+      /* =============== 박스 스타일 =============== */
+      .board-section {
+        margin-top: 24px;
+        padding: 20px 22px;
+        border-radius: 10px;
+        border: 1px solid #262626;
+        background-color: #161616;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.45);
+      }
+      .board-section h2 {
+        font-size: 18px;
+        margin-bottom: 14px;
+        color: #bdbdbd;
+        font-weight: 500;
+      }
+
+      /* =============== 테이블 스타일 =============== */
+      .board-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+      .board-table th {
+        padding: 10px 6px;
+        border-bottom: 1px solid #333;
+        background-color: #1e1e1e;
+        color: #dcdcdc;
+        text-align: left;
+        font-weight: 600;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+      }
+      .board-table td {
+        padding: 10px 6px;
+        border-bottom: 1px solid #262626;
+        color: #cecece;
+      }
+
+      /* 열 너비 */
+      .board-table th:nth-child(1),
+      .board-table td:nth-child(1) {
+        width: 60px;
+        text-align: center;
+      }
+      .board-table th:nth-child(3),
+      .board-table td:nth-child(3) {
+        width: 130px;
+        text-align: center;
+      }
+      .board-table th:nth-child(4),
+      .board-table td:nth-child(4),
+      .board-table th:nth-child(5),
+      .board-table td:nth-child(5) {
+        width: 80px;
+        text-align: center;
+        font-weight: 600;
+        color: #ff9797;
+      }
+
+      .board-table tbody tr {
+        transition: background-color 0.2s ease;
+      }
+      .board-table tbody tr:hover {
+        background-color: #222;
+        cursor: pointer;
+      }
+
+      /* 페이지 네비 */
+      .board-footer {
+        margin-top: 12px;
+        font-size: 13px;
+        text-align: right;
+        color: #bbbbbb;
+      }
+      .board-footer span {
+        display: inline-block;
+        margin-left: 4px;
+        padding: 4px 7px;
+        background: #1d1d1d;
+        border-radius: 4px;
+        transition: 0.2s;
+      }
+      .board-footer span:hover {
+        background: #ff5757;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
+
+    <!-- 🔥 Supabase SDK 필수 -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  </head>
+
+  <body>
+
+    <!-- ===== 헤더 ===== -->
+<header>
+  <div class="logo"></div>
+  <ul class="nav">
+    <li><a href="/index.html">홈</a></li>
+    <li>
+      <a href="#news">새소식</a>
+      <div class="dropdown"><a href="../notice/noti.html">공지사항</a></div>
+    </li>
+    <li>
+      <a href="#community">커뮤니티</a>
+      <div class="dropdown">
+        <a href="/commuity/communityall.html">전체</a>
+        <a href="/commuity/communityfree.html">자유</a>
+      </div>
+    </li>
+    <li><a href="../download/download.html">다운로드</a></li>
+    <li><a href="#about">게임 소개</a></li>
+    <li><a href="#contact">고객지원</a></li>
+  </ul>
+
+  <!-- 로그인 UI 들어갈 자리 -->
+  <div class="login-area" id="loginArea"></div>
+</header>
+
+    <!-- ===== 공지사항 본문 ===== -->
+    <main class="community-main">
+      <h1>공지사항</h1>
+
+      <section class="board-section">
+        <h2>공지사항 목록</h2>
+
+        <table class="board-table">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>제목</th>
+              <th>작성일</th>
+              <th>조회수</th>
+              <th>비고</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>3</td>
+              <td>[이벤트] 크리스마스 한정 접속 보상 안내</td>
+              <td>2025-12-05</td>
+              <td>120</td>
+              <td>이벤트</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>12월 정기 점검 안내 (시간 변경)</td>
+              <td>2025-12-03</td>
+              <td>98</td>
+              <td>점검</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>공식 커뮤니티 이용 수칙 안내</td>
+              <td>2025-12-01</td>
+              <td>230</td>
+              <td>필독</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="board-footer">
+          <span>1</span>
+          <span>2</span>
+          <span>더 보기 ></span>
+        </div>
+      </section>
+    </main>
+
+    <!-- 🔥 로그인 처리 자동 스크립트 -->
+    <script src="../auth.js"></script>
+
+  </body>
+</html>

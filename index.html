@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ex 사이트 디자인 파일</title>
 <link rel="stylesheet" href="Style/wl.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 <style>
   /* 비디오 배경 */
   .bg-video {
@@ -17,33 +18,6 @@
   .bg-video.fade-out {
     opacity: 0;
   }
-
-  /* 로그인 영역 */
-  .nickname {
-    font-weight: bold;
-    color: #fff;
-    margin-right: 10px;
-  }
-  .login-btn {
-    background: #333;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 4px;
-    margin-left: 5px;
-    text-decoration: none;
-  }
-  .login-btn:hover {
-    background: #555;
-  }
-
-  /* 로그인 영역 위치 보장 */
-  .login-area {
-    display: inline-block;
-    position: relative;
-    z-index: 1000;
-  }
 </style>
 </head>
 <body>
@@ -52,19 +26,19 @@
 <header>
   <div class="logo"></div>
   <ul class="nav">
-    <li><a href="/wn.html">홈</a></li>
+    <li><a href="/index.html">홈</a></li>
     <li>
       <a href="#news">새소식</a>
-      <div class="dropdown"><a href="notice/noti.html">공지사항</a></div>
+      <div class="dropdown"><a href="../notice/noti.html">공지사항</a></div>
     </li>
     <li>
       <a href="#community">커뮤니티</a>
       <div class="dropdown">
-        <a href="#">전체</a>
-        <a href="#">자유</a>
+        <a href="/commuity/communityall.html">전체</a>
+        <a href="/commuity/communityfree.html">자유</a>
       </div>
     </li>
-    <li><a href="#games">다운로드</a></li>
+    <li><a href="../download/download.html">다운로드</a></li>
     <li><a href="#about">게임 소개</a></li>
     <li><a href="#contact">고객지원</a></li>
   </ul>
@@ -77,7 +51,7 @@
     <source src="img/god.mp4" type="video/mp4">
   </video>
   <div class="hero-content">
-    <div class="hero-subtitle" id="heroCount">1 / 6</div>
+    <div class="hero-subtitle" id="heroCount">0 / 3</div>
     <h1 class="hero-title" id="heroTitle">무제</h1>
     <p class="hero-description" id="heroDesc">디자인 중</p>
     <a href="#" class="cta-link">자세히 보기 ></a>
@@ -121,10 +95,15 @@
   </div>
 </section>
 
-<!-- Footer -->
-<footer id="footer" class="wr-footer">
-  <div class="footer">div</div>
+<!-- 5. Footer (하단 정보) -->
+<footer class="footer">
+    <div class="footer-inner">
+        <p>&copy; 2025 Game Portal. All Rights Reserved. | 
+            <a href="#" class="footer-link">개인정보처리방침</a>
+        </p>
+    </div>
 </footer>
+
 
 <!-- Supabase SDK -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -233,5 +212,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 });
 </script>
+    <script src="../auth.js"></script>
 </body>
 </html>

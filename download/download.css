@@ -1,0 +1,116 @@
+    /* (download_center_korean.html의 <style> 블록에서 분리된 커스텀 CSS 규칙) */
+body {
+    background-color: #10141c !important;
+    color: #e5e7eb !important;
+    font-family: 'Inter', sans-serif !important;
+    min-height: 100vh;
+}
+
+th {
+    font-size: 0.875rem;
+}
+
+details[open] summary {
+    background-color: #334155;
+}
+
+.download-hero {
+    /* Tailwind의 배경색 위에 그래디언트 오버레이를 적용합니다. */
+    background: linear-gradient(135deg, #202632 0%, #171b23 100%);
+}
+
+#downloadArea button {
+    /* 버튼의 호버/클릭 효과를 위한 부드러운 전환을 설정합니다. */
+    transition: all 0.2s ease-in-out;
+}
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: #fff;
+            background-image: url(../img/wwq.jpg);
+            border-bottom: 1px solid #2a2a2a;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 120px;
+            height: 40px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: #d4af37;
+            cursor: pointer;
+        }
+
+        .nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav li {
+            list-style: none;
+            position: relative;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #d4af37;
+        }
+
+           /* 로그인/회원가입 영역 */
+.login-area {
+    display: flex;
+    gap: 10px;
+}
+
+  .login-btn {
+    
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 5px;
+    text-decoration: none;
+  }
+  .login-btn:hover {
+    background: #555;
+  }
+  
+     /* 로그인/회원가입 영역 */
+.login-area {
+    display: flex;
+    gap: 10px;
+}
+
+        .login-btn {
+            border-radius: 100px; 
+            color: hsla(0,0%,100%,.7);
+            padding: 8px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+
+        .login-btn:hover {
+            background-color: black;
+            color: white;
+        }
+          .nickname {
+    font-weight: bold;
+    color: #fff;
+    margin-right: 10px;
+  }
