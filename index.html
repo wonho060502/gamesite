@@ -194,19 +194,34 @@ document.addEventListener('DOMContentLoaded', async () => {
   const heroDesc = document.getElementById("heroDesc");
 
   function updateHero() {
-    const slide = slides[currentIndex];
-    videoElement.classList.add("fade-out");
-    setTimeout(() => {
-      videoElement.querySelector("source").src = slide.video;
-      videoElement.load();
-      videoElement.play();
-      heroTitle.textContent = slide.title;
-      heroDesc.textContent = slide.desc;
-      heroCount.textContent = `${currentIndex + 1} / ${slides.length}`;
+  const slide = slides[currentIndex];
+  videoElement.classList.add("fade-out");
+
+  setTimeout(() => {
+    const source = videoElement.querySelector("source");
+    source.src = slide.video;
+
+    heroTitle.textContent = slide.title;
+    heroDesc.textContent = slide.desc;
+    heroCount.textContent = `${currentIndex + 1} / ${slides.length}`;
+
+    // 기존 canplay 핸들러 제거 (혹시라도 남아있는 것 방지)
+    videoElement.oncanplay = null;
+
+    videoElement.load();
+
+    videoElement.oncanplay = async () => {
+      try {
+        await videoElement.play();
+      } catch (err) {
+        console.log("play 중단:", err);
+      }
       videoElement.classList.remove("fade-out");
-      currentIndex = (currentIndex + 1) % slides.length;
-    }, 1000);
-  }
+    };
+
+    currentIndex = (currentIndex + 1) % slides.length;
+  }, 1000);
+}
 
   setInterval(updateHero, 5000);
 
